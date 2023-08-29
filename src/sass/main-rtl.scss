@@ -1,0 +1,15 @@
+$language: 'ar';
+@import 'abstracts/fonts';
+@import 'base/colors';
+@import 'abstracts/variables'; 
+
+/* Components */
+@import 'components/nav';
+@import 'components/card';
+@import 'components/customCheckbox';
+@import 'components/buttons.scss';
+@import 'components/modal';
+
+
+@import 'base/base';
+@import 'base/mobile';

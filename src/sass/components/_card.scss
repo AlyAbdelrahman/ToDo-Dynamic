@@ -1,0 +1,80 @@
+.todo-card-container {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    height: 87vh;
+    align-items: center;
+}
+.todo-card-box {
+    width: 20rem;
+    height: 30rem;
+    background-color: $white-color;
+    position: relative;
+}
+.todo-card-date-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    padding-bottom: 1rem;
+    align-items: center;
+}
+.date-container {
+    display: flex;
+    align-items: center;
+}
+.date-day {
+    font-size: 2rem;
+    margin: 0 0.3rem;
+    p {
+        color:$grey-color;
+        margin: 0;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+}
+.date-month-year-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    span {
+        font-size: 0.6rem;
+        font-weight: bold;
+    }
+}
+.date-today {
+    span {
+        font-weight: bold;
+        font-size: 0.7rem;
+        color: $faded-dark-color;
+    }
+}
+.todo-card-list-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 19rem;
+}
+.todo-item-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 2.2rem;
+    margin-bottom: 0.5rem;
+    .to-do-icon-check{
+        display: flex;
+        align-items: center;
+    }
+}
+.completeted-task{
+    color: $disbaled-text-color;
+}
+.add-todo-container{
+    position: absolute;
+    bottom: -8px;
+    width: 100%;
+}

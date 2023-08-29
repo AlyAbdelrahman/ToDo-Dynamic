@@ -1,0 +1,50 @@
+.plus-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .plus-cancel { 
+    top: 2rem;
+    background: $faded-primary-color;
+    width: 5rem;
+    height: 5rem;
+    align-items: center;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    border: 0.15rem solid $dark-primary-color;
+    &:hover{
+      background-color:$dark-primary-color ;
+    }
+  }
+  .plus-cancel:before,
+  .plus-cancel:after {
+    content: '';
+    display: block;
+    background: $faded-dark-primary-color;
+    position: absolute;
+    height: 1rem;
+    width: 0.2rem;
+  }
+  .plus-cancel:before {
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+}
+.submit{
+  width: 4rem;
+  height: 2rem;
+  border: none;
+  outline: none;
+  background: $primary-color;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 40px;
+  text-align: center;
+  box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}

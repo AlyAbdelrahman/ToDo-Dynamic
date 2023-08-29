@@ -1,0 +1,19 @@
+$font14: 14px;
+$home-content: 960px;
+$max-phones: 'max-width: 767px';
+$max-tablets: 'max-width: 1024px';
+$png-icon: 'png';
+$svg-icon: 'svg';
+$direction: 'left' !default; 
+$reverse-direction: 'right' !default; 
+$font-face: 'BPReplay Regular' !default;
+$font-face-bold: 'BPReplay Regular Bold' !default;
+$font-face-other: 'Noto Kufi Arabic' !default;
+
+@if($language == 'ar') {
+  $direction: 'right'; 
+  $reverse-direction: 'left';
+  $font-face: 'Noto Kufi Arabic';
+  $font-face-bold: 'Noto Kufi Arabic Bold';
+  $font-face-other: 'BPReplay Regular';
+} 

@@ -1,0 +1,66 @@
+.round {
+  position: relative;
+  display: flex;
+}
+.close {
+  height: 20px;
+  margin-#{$direction}: 1rem;
+  width: 20px;
+  background: $warning-color;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:hover{
+    background: $warning-hover-color;
+  }
+}
+.small-x:after {
+  content: "\d7";
+}
+.close:after {
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+}
+
+.round label {
+  background-color: $white-color;
+  border: 0.15rem solid $faded-grey-color;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 1.3rem;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1.3rem;
+}
+
+.round label:after {
+  border: 0.15rem solid $light-primary-color;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 0.2rem;
+  left: 0.2rem;
+  opacity: 0;
+  position: absolute;
+  top: 0.3rem;
+  transform: rotate(-45deg);
+  width: 0.5rem;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: $white-color;
+  border: 0.15rem solid $light-primary-color;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
