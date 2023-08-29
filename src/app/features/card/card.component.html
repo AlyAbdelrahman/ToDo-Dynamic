@@ -1,0 +1,142 @@
+<ng-container>
+    <div class="todo-card-box">
+        <!-- TO DO HEADER -->
+        <div class="todo-card-date-container">
+
+            <div class="date-today">
+                <span>TUESDAY</span>
+            </div>
+            <div class="date-container">
+                <div class="date-month-year-container">
+                    <div class="date-month">
+                        <span>JAN</span>
+                    </div>
+                    <div class="date-year">
+                        <span>2016</span>
+                    </div>
+                </div>
+                <div class="date-day">
+                    <p>12</p>
+                </div>
+            </div>
+        </div>
+        <!-- TO-DO list -->
+        <div class="todo-card-list-container">
+
+            <!-- TO-DO item -->
+            <div class="todo-item-container">
+                <div class="to-do-icon-check">
+                    <div class="round">
+                        <input type="checkbox" checked id="checkbox2" />
+                        <label for="checkbox2"></label>
+                    </div>
+                    <div class="close small-x"></div>
+                </div>
+                <div class="to-do-item">
+                    <span class="completeted-task">Buy new sweatshirt</span>
+                </div>
+
+            </div>
+            <!-- TO-DO item -->
+            <div class="todo-item-container">
+                <div class="to-do-icon-check">
+                    <div class="round">
+                        <input type="checkbox" checked id="checkbox3" />
+                        <label for="checkbox3"></label>
+                    </div>
+                </div>
+                <div class="to-do-item">
+                    <span class="completeted-task">Begin promotional phase</span>
+                </div>
+            </div>
+            <!-- TO-DO item -->
+            <div class="todo-item-container">
+                <div class="to-do-icon-check">
+                    <div class="round">
+                        <input type="checkbox" checked id="checkbox4" />
+                        <label for="checkbox4"></label>
+                    </div>
+                </div>
+                <div class="to-do-item">
+                    <span>Read an artical</span>
+                </div>
+            </div>
+            <!-- TO-DO item -->
+            <div class="todo-item-container">
+                <div class="to-do-icon-check">
+                    <div class="round">
+                        <input type="checkbox" checked id="checkbox5" />
+                        <label for="checkbox5"></label>
+                    </div>
+                </div>
+                <div class="to-do-item">
+                    <span>try not to fall asleep</span>
+                </div>
+            </div>
+            <!-- TO-DO item -->
+            <div class="todo-item-container">
+                <div class="to-do-icon-check">
+                    <div class="round">
+                        <input type="checkbox" checked id="checkbox6" />
+                        <label for="checkbox6"></label>
+                    </div>
+                </div>
+                <div class="to-do-item">
+                    <span>Watch Sherlock</span>
+                </div>
+            </div>
+            <!-- TO-DO item -->
+            <div class="todo-item-container">
+                <div class="to-do-icon-check">
+                    <div class="round">
+                        <input type="checkbox" checked id="checkbox7" />
+                        <label for="checkbox7"></label>
+                    </div>
+                </div>
+                <div class="to-do-item">
+                    <span>Begin QA for production</span>
+                </div>
+            </div>
+            <!-- TO-DO item -->
+            <div class="todo-item-container">
+                <div class="to-do-icon-check">
+                    <div class="round">
+                        <input type="checkbox" id="checkbox8" />
+                        <label for="checkbox8"></label>
+                    </div>
+                </div>
+                <div class="to-do-item">
+                    <span>Go for a walk</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADD TO-DO  -->
+        <div class="add-todo-container">
+            <div class="plus-button-container">
+                <div id="thing" class="plus-cancel">
+                    <!-- EIDIT MODAL btn-->
+                    <div class="edit-popup">
+                        <div class="wrapper">
+                            <a href="#demo-modal"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EIDIT MODAL -->
+    <div id="demo-modal" class="modal">
+        <div class="modal__content">
+            <div>
+                <form action="/action_page.php">
+                    <label for="task">Task:</label>
+                    <input type="text" id="task" name="task"><br><br>
+                    <input type="submit" value="Submit" class="submit">
+                </form>
+            </div>
+            <a href="#" class="modal__close">&times;</a>
+        </div>
+    </div>
+</ng-container>
