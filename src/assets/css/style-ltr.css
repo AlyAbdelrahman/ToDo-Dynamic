@@ -104,6 +104,19 @@
   width: 100%;
   height: 87vh;
   align-items: center; }
+  .todo-card-container .switch-lang-btn {
+    background: #62d5a5;
+    position: absolute;
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+    top: 80px;
+    right: 17px;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer; }
+    .todo-card-container .switch-lang-btn:hover {
+      background-color: #4ee3a8; }
 
 .todo-card-box {
   width: 20rem;
@@ -129,7 +142,8 @@
     color: #616168;
     margin: 0;
     font-size: 2rem;
-    font-weight: bold; }
+    font-weight: bold;
+    line-height: 4rem; }
 
 .date-month-year-container {
   display: flex;
