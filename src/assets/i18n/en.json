@@ -5,5 +5,10 @@
     "AddTask": "Add Task",
     "EditTask": "Edit Task",
     "submit": "Save",
-    "language": "ع"
+    "language": "ع",
+    "errorLoadingTasks": "Error loading Tasks",
+    "errorAddingTask": "Error Adding Task",
+    "errorEditingTask":"Error Editing Task",
+    "errorDeletingTask":"Error Deleting Task",
+    "errorTogglingTask": "Error Toggling Task"
 }

@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Task } from 'src/app/models/task';
 import { CrudService } from 'src/app/services/crud.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-card',
@@ -22,7 +23,7 @@ export class CardComponent implements OnInit {
   addTaskValue: string = '';
   editTaskValue: string = '';
   searchText: string = '';
-  constructor(private crudService: CrudService) { }
+  constructor(private crudService: CrudService ,private translate: TranslateService) { }
   ngOnInit(): void {
     this.reset();
   }
@@ -44,7 +45,7 @@ export class CardComponent implements OnInit {
       this.taskArrCopy = res;
       this.searchText && this.onEmitter(this.searchText);
     }, err => {
-      this.errorAlertMessage.nativeElement.innerText = 'Error loading Tasks'
+       this.translate.get('errorLoadingTasks').subscribe((data:any)=>  {this.errorAlertMessage.nativeElement.innerText =data});
       this.errorAlert.nativeElement.hidden = false
     }
     )
@@ -66,7 +67,7 @@ export class CardComponent implements OnInit {
       this.input.nativeElement.click();
 
     }, err => {
-      this.errorAlertMessage.nativeElement.innerText = 'Error Editing Task'
+      this.translate.get('errorEditingTask').subscribe((data:any)=>  {this.errorAlertMessage.nativeElement.innerText =data});
       this.errorAlert.nativeElement.hidden = false
     })
   }
@@ -76,7 +77,7 @@ export class CardComponent implements OnInit {
     this.crudService.editTask(this.taskObj).subscribe(res => {
       this.input.nativeElement.click();
     },  err => {
-      this.errorAlertMessage.nativeElement.innerText = 'Error toggling Task'
+      this.translate.get('errorTogglingTask').subscribe((data:any)=>  {this.errorAlertMessage.nativeElement.innerText =data});
       this.errorAlert.nativeElement.hidden = false
     })
   }
@@ -86,7 +87,7 @@ export class CardComponent implements OnInit {
       this.taskArrCopy = this.taskArrCopy.filter(el => el.id != etask.id);
       this.resetStatus();
     },  err => {
-      this.errorAlertMessage.nativeElement.innerText = 'Error Deleting Task'
+      this.translate.get('errorToggerrorDeletingTasklingTask').subscribe((data:any)=>  {this.errorAlertMessage.nativeElement.innerText =data});
       this.errorAlert.nativeElement.hidden = false
     })
   }

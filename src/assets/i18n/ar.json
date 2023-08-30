@@ -5,5 +5,10 @@
     "AddTask": "اضف مهمه",
     "EditTask": "تعديل مهمه",
     "submit": "حفظ",
-    "language": "EN"
+    "language": "EN",
+    "errorLoadingTasks": "خطأ في تحميل المهام",
+    "errorAddingTask": "خطأ في اضافه مهمه",
+    "errorEditingTask":"خطا في تعديل مهمه",
+    "errorDeletingTask":"خطأ في الغاء مهمه",
+    "errorTogglingTask": "خطا في تغير وضع المهمه"
 }
