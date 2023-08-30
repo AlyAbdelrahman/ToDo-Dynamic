@@ -41,9 +41,9 @@
         <div class="modal__content">
             <div>
                 <form >
-                    <label for="task">Add Task:</label>
+                    <label for="task">{{'AddTask' | translate}}:</label>
                     <input [(ngModel)]="addTaskValue" type="text" id="task" name="task"><br><br>
-                    <input type="submit" value="Submit" class="submit" (click)="addTask()">
+                    <input type="submit" value="{{'submit' | translate}}" class="submit" (click)="addTask()">
                 </form>
             </div>
             <a #closeModel href="#" class="modal__close">&times;</a>
@@ -54,9 +54,9 @@
         <div class="modal__content">
             <div>
                 <form action="/action_page.php">
-                    <label for="task">Edit Task:</label>
+                    <label for="task">{{'EditTask' | translate}}:</label>
                     <input [(ngModel)]="editTaskValue" type="text" id="task" name="task"><br><br>
-                    <input type="submit" value="Submit" class="submit" (click)="editTask()">
+                    <input type="submit" value="{{'submit' | translate}}" class="submit" (click)="editTask()">
                 </form>
             </div>
             <a #closeModel href="#" class="modal__close">&times;</a>
