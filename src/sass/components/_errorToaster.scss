@@ -1,0 +1,44 @@
+  // Toas message
+  .toast-message{
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    width: 400px;
+    font-size: 16px;
+    transition: all .5s;
+    z-index: 9999;
+    box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+    @media (max-width: 424px) {
+      width: calc(100% - 20px);
+    }
+  
+    &.danger{
+      background: #F44336;
+    }
+    .message{
+      color: #fff;
+      padding: 20px 30px;
+      text-align:center;
+    }
+    .close{
+      position: absolute;
+      top:35%;
+      float: right;
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1;
+      color: rgb(0, 0, 0);
+      text-shadow: rgb(255, 255, 255) 0px 1px 0px;
+      opacity: 0.2;
+      cursor: pointer;
+      &::after{
+        content: "×";
+      }
+      &:hover{
+        opacity: 0.6;
+      }
+    }
+  }

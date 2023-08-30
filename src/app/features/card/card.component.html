@@ -1,5 +1,9 @@
 <ng-container>
     <div class="todo-card-box">
+        <div #errorAlert hidden class="toast-message danger" style="top: 10px;">
+            <span class="close" (click)="closeCardAlert()"></span>
+            <div class="message" #errorAlertMessage>Oops! Something went wrong.</div>
+        </div>
         <!-- TO DO HEADER -->
         <app-date-card/>
         <app-search (emitter)="onEmitter($event)"/>

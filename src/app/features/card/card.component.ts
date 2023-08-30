@@ -7,9 +7,12 @@ import { CrudService } from 'src/app/services/crud.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit{
-  
-  @ViewChild('closeModel') input: ElementRef|any;
+export class CardComponent implements OnInit {
+
+  @ViewChild('closeModel') input: ElementRef | any;
+  @ViewChild('errorAlert') errorAlert: ElementRef | any;
+  @ViewChild('errorAlertMessage') errorAlertMessage: ElementRef | any;
+
 
   taskObj: Task = new Task();
   taskArr: Task[] = [];
@@ -19,64 +22,84 @@ export class CardComponent implements OnInit{
   addTaskValue: string = '';
   editTaskValue: string = '';
   searchText: string = '';
-  constructor(private crudService: CrudService){}
+  constructor(private crudService: CrudService) { }
   ngOnInit(): void {
     this.reset();
   }
-  resetStatus(){
-    this.editTaskValue ='';
+  resetStatus() {
+    this.editTaskValue = '';
     this.addTaskValue = '';
     this.taskObj = new Task();
   }
-  reset(){
-    this.editTaskValue ='';
+  reset() {
+    this.editTaskValue = '';
     this.addTaskValue = '';
     this.taskObj = new Task();
     this.taskArr = [];
     this.getAllTasks();
   }
-  getAllTasks(){
+  getAllTasks() {
     this.crudService.getTasks().subscribe(res => {
       this.taskArr = res;
       this.taskArrCopy = res;
       this.searchText && this.onEmitter(this.searchText);
-    },err =>  alert('unable to get list of tasks')
+    }, err => {
+      this.errorAlertMessage.nativeElement.innerText = 'Error loading Tasks'
+      this.errorAlert.nativeElement.hidden = false
+    }
     )
   }
-  addTask(){
+  addTask() {
     this.taskObj.taskName = this.addTaskValue;
-    this.crudService.addTask(this.taskObj).subscribe(res=>{
+    this.crudService.addTask(this.taskObj).subscribe(res => {
       this.reset();
       this.input.nativeElement.click();
-    },err=>{alert(err)})
+    }, err => {
+      this.errorAlertMessage.nativeElement.innerText = 'Error Adding Task'
+      this.errorAlert.nativeElement.hidden = false
+    })
   }
 
   editTask() {
     this.taskObj.taskName = this.editTaskValue;
-    this.crudService.editTask(this.taskObj).subscribe(res=>{
+    this.crudService.editTask(this.taskObj).subscribe(res => {
       this.input.nativeElement.click();
-    },err=> alert('Faild to update task'))
+
+    }, err => {
+      this.errorAlertMessage.nativeElement.innerText = 'Error Editing Task'
+      this.errorAlert.nativeElement.hidden = false
+    })
   }
   toggleTaskStatus(etask: Task) {
-    this.taskObj=etask;
+    this.taskObj = etask;
     this.taskObj.status = !etask.status;
-    this.crudService.editTask(this.taskObj).subscribe(res=>{
+    this.crudService.editTask(this.taskObj).subscribe(res => {
       this.input.nativeElement.click();
-    },err=> alert('Faild to update task'))
+    },  err => {
+      this.errorAlertMessage.nativeElement.innerText = 'Error toggling Task'
+      this.errorAlert.nativeElement.hidden = false
+    })
   }
-  deleteTask(etask: Task){
-    this.crudService.deleteTask(etask).subscribe(res=>{
+  deleteTask(etask: Task) {
+    this.crudService.deleteTask(etask).subscribe(res => {
       this.taskArr = this.taskArr.filter(el => el.id != etask.id);
       this.taskArrCopy = this.taskArrCopy.filter(el => el.id != etask.id);
       this.resetStatus();
-    },err=>alert('Faild to delet task'))
+    },  err => {
+      this.errorAlertMessage.nativeElement.innerText = 'Error Deleting Task'
+      this.errorAlert.nativeElement.hidden = false
+    })
   }
-  call(etask: Task){
+  call(etask: Task) {
     this.taskObj = etask;
     this.editTaskValue = etask.taskName
   }
-  onEmitter(searchText: string){
+  onEmitter(searchText: string) {
     this.searchText = searchText;
     this.taskArr = this.taskArrCopy.filter(el => el.taskName.includes(searchText))
+  }
+
+  closeCardAlert(){
+    this.errorAlert.nativeElement.hidden = true
   }
 }
