@@ -168,7 +168,8 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  height: 19rem; }
+  height: 19rem;
+  margin-top: 12px; }
 
 .todo-item-container {
   display: flex;
