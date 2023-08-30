@@ -1,0 +1,20 @@
+.card-search-container {
+    display: flex;
+    justify-content: center;
+    .card-input-search {
+        border: 1px solid black;
+        border-radius: 5px;
+        border: solid 1.5px #d3d3d3;
+        -webkit-transition: 1s; /* Safari */
+        transition: 1s;
+        width: 80%;
+        padding: 5px;
+        &:hover {
+            box-shadow: 0 0 5pt 0.5pt #d3d3d3;
+        }
+        &:focus {
+            box-shadow: 0 0 5pt 2pt #d3d3d3;
+            outline-width: 0px;
+        }
+    }
+}

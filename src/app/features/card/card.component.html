@@ -1,25 +1,8 @@
 <ng-container>
     <div class="todo-card-box">
         <!-- TO DO HEADER -->
-        <div class="todo-card-date-container">
-
-            <div class="date-today">
-                <span>{{currentDate | date:'EEEE' | uppercase}}</span>
-            </div>
-            <div class="date-container">
-                <div class="date-month-year-container">
-                    <div class="date-month">
-                        <span>{{currentDate | date:'MMM'}}</span>
-                    </div>
-                    <div class="date-year">
-                        <span>{{currentDate | date:'yyyy'}}</span>
-                    </div>
-                </div>
-                <div class="date-day">
-                    <p>{{currentDate | date:'dd'}}</p>
-                </div>
-            </div>
-        </div>
+        <app-date-card/>
+        <app-search (emitter)="onEmitter($event)"/>
         <!-- TO-DO list -->
         <div class="todo-card-list-container">
             <!-- TO-DO item -->
@@ -34,9 +17,7 @@
                 <div class="to-do-item" (click)="call(task)">
                     <span [ngClass]="task.status ? 'completeted-task' : ''"> <a href="#edit-modal">{{task.taskName}}</a></span>
                 </div>
-
             </div>
-
         </div>
 
         <!-- ADD TO-DO  -->

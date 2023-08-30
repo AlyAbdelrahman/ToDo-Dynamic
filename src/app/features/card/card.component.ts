@@ -13,10 +13,11 @@ export class CardComponent implements OnInit{
 
   taskObj: Task = new Task();
   taskArr: Task[] = [];
+  taskArrCopy: Task[] = [];
+
 
   addTaskValue: string = '';
   editTaskValue: string = '';
-  currentDate = new Date();
   constructor(private crudService: CrudService){}
   ngOnInit(): void {
     this.reset();
@@ -31,6 +32,8 @@ export class CardComponent implements OnInit{
   getAllTasks(){
     this.crudService.getTasks().subscribe(res => {
       this.taskArr = res;
+      this.taskArrCopy = res;
+
     },err =>  alert('unable to get list of tasks')
     )
   }
@@ -65,5 +68,8 @@ export class CardComponent implements OnInit{
   call(etask: Task){
     this.taskObj = etask;
     this.editTaskValue = etask.taskName
+  }
+  onEmitter(searchText: string){
+    this.taskArr = this.taskArrCopy.filter(el => el.taskName.includes(searchText))
   }
 }
