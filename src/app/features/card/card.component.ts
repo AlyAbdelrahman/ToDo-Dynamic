@@ -18,9 +18,15 @@ export class CardComponent implements OnInit{
 
   addTaskValue: string = '';
   editTaskValue: string = '';
+  searchText: string = '';
   constructor(private crudService: CrudService){}
   ngOnInit(): void {
     this.reset();
+  }
+  resetStatus(){
+    this.editTaskValue ='';
+    this.addTaskValue = '';
+    this.taskObj = new Task();
   }
   reset(){
     this.editTaskValue ='';
@@ -33,7 +39,7 @@ export class CardComponent implements OnInit{
     this.crudService.getTasks().subscribe(res => {
       this.taskArr = res;
       this.taskArrCopy = res;
-
+      this.searchText && this.onEmitter(this.searchText);
     },err =>  alert('unable to get list of tasks')
     )
   }
@@ -48,7 +54,6 @@ export class CardComponent implements OnInit{
   editTask() {
     this.taskObj.taskName = this.editTaskValue;
     this.crudService.editTask(this.taskObj).subscribe(res=>{
-      this.reset();
       this.input.nativeElement.click();
     },err=> alert('Faild to update task'))
   }
@@ -56,13 +61,14 @@ export class CardComponent implements OnInit{
     this.taskObj=etask;
     this.taskObj.status = !etask.status;
     this.crudService.editTask(this.taskObj).subscribe(res=>{
-      this.reset();
       this.input.nativeElement.click();
     },err=> alert('Faild to update task'))
   }
   deleteTask(etask: Task){
     this.crudService.deleteTask(etask).subscribe(res=>{
-      this.reset();
+      this.taskArr = this.taskArr.filter(el => el.id != etask.id);
+      this.taskArrCopy = this.taskArrCopy.filter(el => el.id != etask.id);
+      this.resetStatus();
     },err=>alert('Faild to delet task'))
   }
   call(etask: Task){
@@ -70,6 +76,7 @@ export class CardComponent implements OnInit{
     this.editTaskValue = etask.taskName
   }
   onEmitter(searchText: string){
+    this.searchText = searchText;
     this.taskArr = this.taskArrCopy.filter(el => el.taskName.includes(searchText))
   }
 }
