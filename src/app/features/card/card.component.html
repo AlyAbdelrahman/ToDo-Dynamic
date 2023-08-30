@@ -22,22 +22,21 @@
         </div>
         <!-- TO-DO list -->
         <div class="todo-card-list-container">
-
             <!-- TO-DO item -->
             <div *ngFor="let task of taskArr" class="todo-item-container">
-                <div class="to-do-icon-check">
+                <div class="to-do-icon-check" >
                     <div class="round">
-                        <input type="checkbox" checked id="checkbox2" />
-                        <label for="checkbox2"></label>
+                        <input type="checkbox" [checked]="task.status"  [id]="task.taskName" (click)="toggleTaskStatus(task)" />
+                        <label [for]="task.taskName" ></label>
                     </div>
-                    <div #closeModel class="close small-x"></div>
+                    <div class="close small-x" (click)="deleteTask(task)"></div>
                 </div>
-                <div class="to-do-item">
-                    <span class="completeted-task">{{task.taskName}}</span>
+                <div class="to-do-item" (click)="call(task)">
+                    <span [ngClass]="task.status ? 'completeted-task' : ''"> <a href="#edit-modal">{{task.taskName}}</a></span>
                 </div>
 
             </div>
-            
+
         </div>
 
         <!-- ADD TO-DO  -->
@@ -47,7 +46,7 @@
                     <!-- EIDIT MODAL btn-->
                     <div class="edit-popup">
                         <div class="wrapper">
-                            <a href="#demo-modal"></a>
+                            <a href="#add-modal"></a>
                         </div>
                     </div>
                 </div>
@@ -55,17 +54,30 @@
         </div>
     </div>
 
-    <!-- EIDIT MODAL -->
-    <div id="demo-modal" class="modal">
+    <!-- ADD MODAL -->
+    <div id="add-modal" class="modal">
         <div class="modal__content">
             <div>
-                <form action="/action_page.php">
-                    <label for="task">Task:</label>
+                <form >
+                    <label for="task">Add Task:</label>
                     <input [(ngModel)]="addTaskValue" type="text" id="task" name="task"><br><br>
                     <input type="submit" value="Submit" class="submit" (click)="addTask()">
                 </form>
             </div>
-            <a href="#" class="modal__close">&times;</a>
+            <a #closeModel href="#" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <!-- Edit MODAL -->
+    <div id="edit-modal" class="modal">
+        <div class="modal__content">
+            <div>
+                <form action="/action_page.php">
+                    <label for="task">Edit Task:</label>
+                    <input [(ngModel)]="editTaskValue" type="text" id="task" name="task"><br><br>
+                    <input type="submit" value="Submit" class="submit" (click)="editTask()">
+                </form>
+            </div>
+            <a #closeModel href="#" class="modal__close">&times;</a>
         </div>
     </div>
 </ng-container>
