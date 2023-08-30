@@ -4,19 +4,19 @@
         <div class="todo-card-date-container">
 
             <div class="date-today">
-                <span>TUESDAY</span>
+                <span>{{currentDate | date:'EEEE' | uppercase}}</span>
             </div>
             <div class="date-container">
                 <div class="date-month-year-container">
                     <div class="date-month">
-                        <span>JAN</span>
+                        <span>{{currentDate | date:'MMM'}}</span>
                     </div>
                     <div class="date-year">
-                        <span>2016</span>
+                        <span>{{currentDate | date:'yyyy'}}</span>
                     </div>
                 </div>
                 <div class="date-day">
-                    <p>12</p>
+                    <p>{{currentDate | date:'dd'}}</p>
                 </div>
             </div>
         </div>

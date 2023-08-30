@@ -16,7 +16,7 @@ export class CardComponent implements OnInit{
 
   addTaskValue: string = '';
   editTaskValue: string = '';
-
+  currentDate = new Date();
   constructor(private crudService: CrudService){}
   ngOnInit(): void {
     this.reset();
