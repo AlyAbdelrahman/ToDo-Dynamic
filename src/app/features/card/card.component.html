@@ -7,15 +7,16 @@
         <div class="todo-card-list-container">
             <!-- TO-DO item -->
             <div *ngFor="let task of taskArr" class="todo-item-container">
+                
+                <div class="to-do-item" (click)="call(task)">
+                    <span [ngClass]="task.status ? 'completeted-task' : ''"> <a href="#edit-modal">{{task.taskName}}</a></span>
+                </div>
                 <div class="to-do-icon-check" >
                     <div class="round">
                         <input type="checkbox" [checked]="task.status"  [id]="task.taskName" (click)="toggleTaskStatus(task)" />
                         <label [for]="task.taskName" ></label>
                     </div>
                     <div class="close small-x" (click)="deleteTask(task)"></div>
-                </div>
-                <div class="to-do-item" (click)="call(task)">
-                    <span [ngClass]="task.status ? 'completeted-task' : ''"> <a href="#edit-modal">{{task.taskName}}</a></span>
                 </div>
             </div>
         </div>

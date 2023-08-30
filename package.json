@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "compile:sass": "node-sass src/sass/main-rtl.scss src/assets/css/style-rtl.css -w",
+    "compile:sassltr": "node-sass  src/sass/main-ltr.scss src/assets/css/style-ltr.css -w",
     "test": "ng test"
   },
   "private": true,
@@ -34,6 +36,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "node-sass": "^9.0.0",
     "typescript": "~5.1.3"
   }
 }
